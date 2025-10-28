@@ -173,7 +173,7 @@ impl Gpio {
     /// 初始化：打开时钟并检测 GPIO 版本（v1/v2），同时做默认屏蔽/清理
     pub fn gpio_init(&mut self) {
         // 先打开 GPIO3 时钟（示例），实际 bit/offset 请根据 board DTS 修改
-        cru_set_gate(CRU_CLKGATE_CON35_OFFSET, 0);
+        // cru_set_gate(CRU_CLKGATE_CON35_OFFSET, 0);
 
         // 读取 version id（仅对 v2 可用），若读不到则默认 v1
         let ver_addr = unsafe { self.base.as_ptr().add(OFF_VERSION_ID) } as *mut u32;
